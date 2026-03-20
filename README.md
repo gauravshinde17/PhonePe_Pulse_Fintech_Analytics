@@ -1,141 +1,124 @@
-# PhonePe_Pulse_Fintech_Analytics
-### Adoption, Monetization & Structural Performance Study (2018–2024)
-
-This project analyzes India’s digital payment ecosystem using PhonePe Pulse open data.  
-The objective is to study platform growth, monetization structure, user engagement depth, and regional performance using a structured SQL-driven analytical framework.
-
-The analysis is built using a warehouse-first approach where all KPIs and growth calculations are defined in SQL and visualized through Power BI.
+Here's the rewritten README:
 
 ---
 
-## 📈 Latest Quarter Snapshot (Q4 2024)
+# PhonePe Pulse — India Digital Payments Analytics
 
-- ₹36 Trillion – Total Transaction Value  
-- 28.22 Billion – Total Transactions  
-- 9.29% – QoQ Transaction Growth  
-- 586.76 Million – Registered Users  
-- 22.45% – Merchant Share  
-- 52.30% – Transaction Value Concentration (Top 5 States)
+**Python** · **MySQL** · **Power BI** · **DAX**
 
 ---
 
-## 🧠 Key Analytical Observations
+## The Problem
 
-#### 1️⃣ Structural Leadership
+India's UPI ecosystem generates massive transaction data across states, user segments, and payment categories. PhonePe Pulse makes this data public — but raw JSON exports across hundreds of district-level files don't tell you much on their own.
 
-The South region contributes **34.18% of total transaction volume** and **35.68% of total transaction value**, indicating a structurally dominant role in the national digital payments ecosystem.
+The questions worth asking: Where is monetization actually happening? Which regions are driving structural growth versus one-time spikes? And is the platform maturing or still in aggressive acquisition mode?
 
-#### 2️⃣ Market Concentration Pattern
-
-The top 5 states account for **52.30% of total transaction value**, suggesting moderate concentration rather than evenly distributed adoption.
-
-#### 3️⃣ Monetization Structure
-
-Merchant share has reached **22.45%**, while P2P transactions remain at **73.99%**. This reflects gradual monetization progression while maintaining strong peer-to-peer dominance.
-
-#### 4️⃣ Engagement Maturity
-
-With **586.76 million registered users**, user acquisition remains strong. However, engagement growth shows stabilization trends, indicating a shift toward platform maturity.
-
-#### 5️⃣ Regional Efficiency Insight
-
-Regions with smaller transaction volumes maintain comparable average ticket sizes, suggesting monetization opportunity is not purely dependent on scale.
+> Is India's digital payment growth broad-based, or structurally concentrated in a few states — and what does that mean for monetization?
 
 ---
 
-## 🏗 Data & Modeling Approach
+## What I Built
 
-- Data extracted from PhonePe Pulse open GitHub repository  
-- JSON ingestion and transformation performed using Python  
-- Structured warehouse designed in MySQL  
-- Growth metrics implemented using window functions (LAG)  
-- Analytical views created before BI layer  
-- Power BI used strictly for visualization and structured reporting  
-
-All percentage growth and share metrics are calculated carefully to avoid aggregation bias.
+An end-to-end analytics pipeline that ingests PhonePe Pulse JSON data from GitHub, transforms it through a MySQL warehouse, and surfaces adoption, monetization, and regional performance metrics across four Power BI dashboard pages. All business logic — growth rates, share calculations, engagement ratios — lives in SQL views and DAX measures, keeping the BI layer strictly for visualization.
 
 ---
 
-## 🛠 Tools & Technologies
+## Tech Stack
 
-#### 🐍 Python
-- Extracted data programmatically from PhonePe Pulse GitHub repository (API-style ingestion) 
-- Parsed and flattened JSON files  
-- Cleaned and structured datasets for analysis  
-
-#### 🗄 MySQL
-- Designed fact and dimension tables  
-- Built analytical views for adoption, monetization, and growth  
-- Used window functions (LAG) for QoQ and YoY calculations  
-
-#### 📊 Power BI
-- Created structured dashboards across multiple themes  
-- Built semantic model with controlled relationships  
-- Implemented share % and weighted engagement ratios  
-
-#### 📐 DAX
-- Used for percentage share calculations  
-- Created weighted measures (e.g., Engagement Ratio)  
-- Avoided business growth logic inside BI layer  
- 
----
-
-## 📊 Dashboard Structure
-
-1. **Monetization Mechanics**  
-   Merchant mix, regional merchant intensity, value contribution.
-
-2. **User Adoption & Engagement**  
-   User growth trends, engagement ratio, regional engagement comparison.
-
-3. **Platform Expansion & Acceleration**  
-   QoQ & YoY regional transaction growth analysis.
-
-4. **Market Leadership & Structural Strength**  
-   Regional dominance, concentration analysis, ticket size behavior.
+| Layer | Tool | Purpose |
+|---|---|---|
+| Ingestion & ETL | Python | API-style GitHub pull, JSON flattening, data cleaning |
+| Warehouse & Analytics | MySQL | Fact/dimension modeling, window functions, analytical views |
+| Visualization | Power BI + DAX | Dashboard layer, share % measures, engagement ratios |
 
 ---
 
-## Dashboard Preview
+## Dashboard Pages
 
-### Monetization Mechanics
-![](07_Dashboard/Images/D1.png)
+### 1. Monetization Mechanics
+Merchant mix, regional merchant intensity, P2P vs. merchant value split.
 
-### Market Leadership & Structural Strength
-![](07_Dashboard/Images/D4.png)
+![Monetization Mechanics](07_Dashboard/Images/D1.png)
+
+### 2. Market Leadership & Structural Strength
+Regional dominance, concentration analysis, ticket size behavior by geography.
+
+![Market Leadership](07_Dashboard/Images/D4.png)
+
+> 📄 [Full Dashboard PDF — all four pages](07_Dashboard/Dashboard.pdf)
 
 ---
 
-📄**Full Dashboard (All Pages – PDF):**  
-🔹[View Complete Dashboard PDF](07_Dashboard/Dashboard.pdf)
+## Key Findings
 
-This PDF contains **all dashboard pages across Market & Sales, Delivery & Operations, Retail Store, and Customer analysis**.
+- **The South region accounts for 34.18% of transaction volume and 35.68% of value — structurally dominant, not just large**
+- Top 5 states hold 52.3% of total transaction value — moderate concentration, not winner-takes-all
+- Merchant share sits at 22.45% against 73.99% P2P — monetization is progressing but P2P dominance is intact
+- 586.76M registered users with stabilizing engagement growth — classic platform maturity signal
+- Smaller-volume regions maintain comparable average ticket sizes — monetization opportunity exists beyond scale
 
 ---
 
-## Project Documentation
+## Recommendations
 
-- 📄 [Project Overview](05_Documentation/01_Project_Overview.docx)
+- **Merchant acquisition priority:** Regions with high P2P volume but low merchant share are undermonetized — addressable with targeted onboarding
+- **Engagement over acquisition:** With user growth stabilizing, retention and transaction frequency should be the primary metric focus
+- **Tier-2/3 expansion:** Comparable ticket sizes in lower-volume regions suggest structural readiness, not just latent demand
 
-- 📄 [Data Source & Methodology](05_Documentation/02_Data_Methodology.docx)
-
-- 📄 [Warehouse Architecture](05_Documentation/03_Data_Model_Architecture.docx)
-
-- 📄 [Dashboard Design Framework](05_Documentation/04_Dashboard_Framework.docx)
-
-- 📄 [KPI Definitions & Governance](05_Documentation/05_KPI_Governance_Framework.docx)
-
-- 📄 [Insights Interpretation](06_Insights/05_Insights.docx)
-  
 ---
 
-## 🎯 What This Project Demonstrates
+## Data Model
 
-- SQL-based analytical modeling  
-- Window function implementation for growth analysis  
-- Structured KPI governance  
-- Regional monetization evaluation  
-- Engagement analytics  
-- Clean and disciplined BI modeling  
+Warehouse-first design in MySQL. Growth metrics computed using `LAG()` window functions before the BI layer, preventing aggregation errors in Power BI.
 
-This project reflects my approach to building structured, governance-focused analytics rather than surface-level dashboard reporting.
+```
+Staging  →  Dimensions  →  Facts  →  Analytical Views  →  Power BI
+
+03_SQL/01_staging        Database setup, raw data load
+03_SQL/02_dimensions     dim_time, dim_state
+03_SQL/03_facts          fact_transactions, fact_users, fact_insurance
+03_SQL/04_analytical_views
+  ├── A_ prefix          Adoption (national + regional growth)
+  ├── I_ prefix          Insurance growth and mix
+  ├── M_ prefix          Monetization (merchant vs P2P)
+  ├── U_ prefix          User growth and engagement
+  ├── V_ prefix          Quarterly volume breakdowns
+  └── Z_ prefix          Master KPI summary (consolidated view for BI)
+```
+
+---
+
+## Repo Structure
+
+```
+PhonePe_Pulse_Fintech_Analytics/
+│
+├── 01_Data/                    # Raw JSON from PhonePe Pulse GitHub
+├── 02_Notebooks/               # Python ingestion and transformation notebooks
+├── 03_SQL/                     # Schema DDL, analytical views, queries
+├── 04_PowerBi/                 # .pbix file and semantic model config
+├── 05_Documentation/           # Project overview, methodology, architecture docs
+├── 06_Insights/                # Written interpretation of findings
+└── 07_Dashboard/               # Dashboard screenshots
+    
+```
+
+---
+
+## Documentation
+
+| Document | Description |
+|---|---|
+| [Project Overview](05_Documentation/01_Project_Overview.docx) | Scope, objectives, analytical approach |
+| [Data Source & Methodology](05_Documentation/02_Data_Methodology.docx) | PhonePe Pulse structure, ingestion logic |
+| [Warehouse Architecture](05_Documentation/03_Data_Model_Architecture.docx) | Schema design, view definitions |
+| [Dashboard Design Framework](05_Documentation/04_Dashboard_Framework.docx) | Page structure, measure governance |
+| [KPI Definitions](05_Documentation/05_KPI_Governance_Framework.docx) | Metric definitions, calculation rules |
+| [Insights Interpretation](06_Insights/05_Insights.docx) | Full analytical narrative |
+
+---
+
+*Built to demonstrate warehouse-first analytics — business logic in SQL, not in the BI tool.*
+
+---
