@@ -1,5 +1,3 @@
-Here's the rewritten README:
-
 ---
 
 # PhonePe Pulse — India Digital Payments Analytics
