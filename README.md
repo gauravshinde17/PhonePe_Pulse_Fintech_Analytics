@@ -1,10 +1,8 @@
----
-
 # PhonePe Pulse — India Digital Payments Analytics
 
 **Python** · **MySQL** · **Power BI** · **DAX**
 
----
+
 
 ## The Problem
 
